@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class YearlyReport {
     Year year;
     HashMap<Integer, ArrayList<YearSale>> yearStatistic = new HashMap<>();
-     static ArrayList<YearSale> yearSales = new ArrayList<>();
+    static ArrayList<YearSale> yearSales = new ArrayList<>();
 
     public void createYearReport(int yearNumber) {
         String content = readFileContentsOrNull("resources/y." + yearNumber + ".csv");
@@ -47,27 +47,27 @@ public class YearlyReport {
 
     public int averageProfit() {
         int sum = 0;
-        int i = 0;
+
 
         for (YearSale yearSale : yearSales) {
             if (!yearSale.isExpense) {
                 sum += yearSale.amount;
-                i++;
+
             }
         }
-        return (sum / i);
+        return (sum / 12);
     }
 
     public int averageExpense() {
         int sum = 0;
-        int i = 0;
+
         for (YearSale yearSale : yearSales) {
             if (yearSale.isExpense) {
                 sum += yearSale.amount;
-                i++;
+
             }
         }
-        return (sum / i);
+        return (sum / 12);
     }
 
     public String readFileContentsOrNull(String path) {

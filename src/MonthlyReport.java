@@ -55,14 +55,12 @@ public class MonthlyReport {
     public void doExpense(int month) {
         ArrayList<Sale> expenses;
         int price = 0;
-        String item = null;
         String topItem = null;
         expenses = dataMonth.get(convert(month));
         int maxSum = 0;
         for (Sale sale : expenses) {
             if (sale.isExpense == true) {
                 price = sale.quantity * sale.sum;
-                item = sale.item;
 
                 if (price > maxSum) {
                     maxSum = price;
@@ -78,14 +76,12 @@ public class MonthlyReport {
     public void doProfit(int month) {
         ArrayList<Sale> value = new ArrayList<Sale>();
         int price = 0;
-        String item = null;
         String topItem = null;
         value = dataMonth.get(convert(month));
         int maxSum = 0;
         for (Sale sale : value) {
             if (sale.isExpense == false) {
                 price = sale.quantity * sale.sum;
-                item = sale.item;
 
                 if (price > maxSum) {
                     maxSum = price;
@@ -108,7 +104,7 @@ public class MonthlyReport {
         }
     }
 
-    public int maxExpense(int month) {
+    public int sumOfExpenses(int month) {
         ArrayList<Sale> expenses = new ArrayList<Sale>();
         int totalExp = 0;
         expenses = dataMonth.get(convert(month));
@@ -120,7 +116,7 @@ public class MonthlyReport {
         return totalExp;
     }
 
-    public int maxSum(int month) {
+    public int sumOfProfits(int month) {
         ArrayList<Sale> profit = new ArrayList<Sale>();
         int totalSum = 0;
         profit = dataMonth.get(convert(month));

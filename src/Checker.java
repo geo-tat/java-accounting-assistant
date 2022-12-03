@@ -22,12 +22,15 @@ public class Checker {
                 }
             }
             for (int i = 1; i <= monthlyReport.dataMonth.size(); i++) {
+                if (yearExp.containsKey(monthlyReport.convert(i)) && yearProfit.containsKey(monthlyReport.convert(i))) {
+                    if (yearExp.get(monthlyReport.convert(i)) == monthlyReport.sumOfExpenses(i) && yearProfit.get(monthlyReport.convert(i)) == monthlyReport.sumOfProfits(i)) {
+                        System.out.println("Отчеты за " + monthlyReport.convert(i) + " месяц сошлись.");
 
-                if (yearExp.get(monthlyReport.convert(i)) == monthlyReport.maxExpense(i) && yearProfit.get(monthlyReport.convert(i)) == monthlyReport.maxSum(i)) {
-                    System.out.println("Отчеты за " + monthlyReport.convert(i) + " месяц сошлись.");
-
+                    } else {
+                        System.out.println("Отчеты за " + monthlyReport.convert(i) + " не сходятся");
+                    }
                 } else {
-                    System.out.println("Отчеты за " + monthlyReport.convert(i) + " не сходятся");
+                    System.out.println("Данные за " + monthlyReport.convert(i) + " присутствуют в неполном объеме");
                 }
             }
         } else {

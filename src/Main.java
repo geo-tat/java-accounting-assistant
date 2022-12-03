@@ -64,6 +64,7 @@ public class Main {
         System.out.println("3 - Сверить отчеты");
         System.out.println("4 - Вывести информацию о всех месячных отчетах");
         System.out.println("5 - Вывести информацию о годовом отчете");
+        System.out.println("Наберите '123' для завершения программы.");
     }
 }
 
